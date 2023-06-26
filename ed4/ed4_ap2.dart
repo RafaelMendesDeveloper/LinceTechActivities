@@ -4,7 +4,6 @@
 
 // Lista convertida: 10, 0, 0, 99, 381, 0, 47, 0, 123, 78
 
-import 'dart:async';
 
 void main() {
   List Lista = [
