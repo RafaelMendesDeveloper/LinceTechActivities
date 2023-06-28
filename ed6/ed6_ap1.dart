@@ -8,8 +8,12 @@
 // Numero digitado: 9999
 
 void main() {
+  converterString('texto');
+  converterString('89');
+}
+
+converterString(String texto) {
   try {
-    final texto = '32';
     final StringConvertida = int.parse(texto);
     print('Numero digitado: $StringConvertida');
   } catch (e) {
