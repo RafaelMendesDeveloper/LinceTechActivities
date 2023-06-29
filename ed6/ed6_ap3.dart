@@ -14,35 +14,34 @@ import 'dart:math';
 
 void main() {
   final random = Random();
-  
-  try{
-    final retangulo = Retangulo(
-      base: random.nextDouble()*99,
-      altura: random.nextDouble()*99,
-    );
-    double area = retangulo.calcularArea();
-    print('Área do retângulo: ${area.toStringAsFixed(2)}');
-  }  catch (e){
+  try {
+    Retangulo valores = Retangulo(random.nextDouble()*100, random.nextDouble()*100);
+    validarValores(valores.altura, valores.base);
+    print('Área do retângulo: ${valores.calcularArea().toStringAsFixed(2)}');
+  } catch (e) {
     print(e);
   }
 }
 
 abstract class Forma {
-  double calcularArea();
+  calcularArea();
 }
 
 class Retangulo implements Forma {
-  Retangulo(this.base, this.altura){
-    if(base<=0 || altura<=0){
-      throw Exception('imensoes invalidas, informe apenas valores positivos maiores que zero');
+  final double base;
+  final double altura;
+
+  Retangulo(this.altura, this.base);
+
+  double calcularArea() {
+    return base * altura;
   }
 }
 
-final double base;
-final double altura;
-
-@override
-double calcularArea(double altura, double base) {
-  return altura * base;
-} }
-
+validarValores(double altura, double base) {
+  if (altura <= 0 || base <= 0) {
+    throw Exception(
+        'Dimensoes invalidas, informe apenas valores positivos maiores que zero');
+  }
+  return;
+}
