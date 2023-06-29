@@ -15,4 +15,34 @@
 // No bloco catch do programa principal, utilize o rethrow para relancar a excecao lancada pelo metodo abrir.
 // Por fim, exiba a mensagem Fim do programa ao final do programa.
 
-//
+void main() {
+  final name = ArquivoTexto('teste');
+
+  try {
+    name.abrir();
+  } catch (e) {
+    print('Entrada invalida. Digite um nome valido.');
+    rethrow;
+  } finally {
+    print('Fim do programa');
+  }
+}
+
+abstract class Arquivo {
+  abrir();
+}
+
+class ArquivoTexto implements Arquivo {
+  final String name;
+
+  ArquivoTexto(this.name);
+
+  @override
+  String abrir() {
+    try {
+      throw Exception('Erro ao abrir o arquivo $name');
+    } catch (e) {
+      rethrow;
+    }
+  }
+}
