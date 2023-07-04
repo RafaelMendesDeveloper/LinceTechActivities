@@ -11,6 +11,10 @@ void main() {
   final gabigol = Jogador('Gabigol');
   gabigol.gol();
   gabigol.assistencia();
+  gabigol.RoubadaDeBola();
+  gabigol.CartaoAmarelo();
+  gabigol.gol();
+  print('${gabigol.nome} fez ${gabigol.pontuacao} pontos!');
 }
 
 abstract class Gol {
@@ -21,15 +25,46 @@ abstract class Assistencia {
   void assistencia();
 }
 
-class Jogador implements Gol, Assistencia {
+abstract class RoubadaDeBola {
+  RoubadaDeBola();
+}
+
+abstract class CartaoAmarelo {
+  CartaoAmarelo();
+}
+
+abstract class CartaoVermelho {
+  CartaoVermelho();
+}
+
+class Jogador implements Gol, Assistencia, RoubadaDeBola, CartaoAmarelo, CartaoVermelho{
+  var pontuacao = 0;
   final String nome;
   Jogador(this.nome);
 
   void gol() {
     print('$nome fez gol!!');
+    pontuacao += 8;
   }
 
   void assistencia() {
     print('$nome deu assistência!!');
+    pontuacao += 5;
   }
+
+  void RoubadaDeBola() {
+    print('$nome roubou uma bola!!');
+    pontuacao += 3;
+  }
+
+  void CartaoAmarelo() {
+    print('$nome tomou cartão amarelo!!');
+    pontuacao -= 1;
+  }
+
+  void CartaoVermelho() {
+    print('$nome tomou cartão vermelho!!');
+    pontuacao -= 3;
+  }
+
 }
