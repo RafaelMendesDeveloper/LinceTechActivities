@@ -40,4 +40,4 @@ calcularPerimetro(double raio) {
 //Fim 16:17
 
 //Tempo estimado: 10 minutos
-//Tempo utilizado: 7 minutos
+//Tempo utilizado: 7 minutos :)

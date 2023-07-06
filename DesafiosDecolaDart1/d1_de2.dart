@@ -38,4 +38,4 @@ converterKelvin(double temperatura) {
 //Fim 16:29
 
 //Tempo estimado: 10 minutos
-//Tempo decorrido: 8 minutos
+//Tempo decorrido: 8 minutos :)

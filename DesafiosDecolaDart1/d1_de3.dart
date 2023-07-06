@@ -80,4 +80,4 @@ contarConsoantes(String frase) {
 //Fim 17:14
 
 //Tempo estimado 40 minutos
-//Tempo decorrido 39 minutos
+//Tempo decorrido 39 minutos :\
