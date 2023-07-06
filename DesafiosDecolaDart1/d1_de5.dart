@@ -77,3 +77,6 @@ gerarNumeroAleatorio(List<String> lista) {
 }
 
 //Fim 18:14
+
+//Tempo estimado: 10 minutos
+//Tempo decorrido: 7 minutos :)
