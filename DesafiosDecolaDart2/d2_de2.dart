@@ -29,7 +29,7 @@ void main() {
   late var fornecedor;
   // Consumindo produtos fornecidos
   for (var i = 0; i < 5; i++) {
-    final factory = RandomFornecedorFactory();
+    // final factory = RandomFornecedorFactory();
     final fornecedor = factory.createRandomFornecedor();
   }
 
@@ -51,11 +51,20 @@ class Produto {
 //  FornecedorAleatorio(this.)
 // }
 
-abstract class FornecedorEscolhido {
-  Produto fornecer();
+class FornecedorEscolhido {
+  FornecedorEscolhido createRandomFornecedor() {
+    final random = Random();
+    final randomNumber =
+        random.nextInt(2); // Gera um número aleatório entre 0 e 1
+    if (randomNumber == 0) {
+      return FornecedorDeComidas();
+    } else {
+      return FornecedorDeBebidas();
+    }
+  }
 }
 
-class FornecedorDeBebidas implements FornecedorEscolhido {
+class FornecedorDeBebidas extends FornecedorEscolhido {
   final _random = Random();
   final _bebidasDisponiveis = <Produto>[
     Produto('Agua', 0),
@@ -73,7 +82,7 @@ class FornecedorDeBebidas implements FornecedorEscolhido {
   }
 }
 
-class FornecedorDeComidas implements FornecedorEscolhido {
+class FornecedorDeComidas extends FornecedorEscolhido {
   final _random = Random();
   final _comidasDisponiveis = <Produto>[
     Produto('Sanduíche', 400),
@@ -90,19 +99,6 @@ class FornecedorDeComidas implements FornecedorEscolhido {
   }
 } //classe criada do fornecedor de comidas
 
-class RandomFornecedorFactory {
-  FornecedorEscolhido createRandomFornecedor() {
-    final random = Random();
-    final randomNumber =
-        random.nextInt(2); // Gera um número aleatório entre 0 e 1
-
-    if (randomNumber == 0) {
-      return FornecedorDeComidas();
-    } else {
-      return FornecedorDeBebidas();
-    }
-  }
-}
 
 class Pessoa {
   // Acumulador de calorias
